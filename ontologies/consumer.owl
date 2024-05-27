@@ -1,8 +1,10 @@
 @prefix nc-c: <https://knowledge.next-cart.com/consumer#> .
+@prefix nc-f: <https://knowledge.next-cart.com/food#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix fo: <http://purl.obolibrary.org/obo/> .
 @prefix tb: <https://w3id.org/timebank/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
@@ -11,47 +13,193 @@ nc-c: a owl:Ontology ;
     <http://purl.org/dc/elements/1.1/creator> "Anisa Rula" ,
                                              "Ada Bagozi" ;
     <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini",
-                                                  "Michele Melchiori";
+                                                  "Michele Melchiori" ;
     owl:versionIRI <https://knowledge.next-cart.com/consumer/1.0.0> ;
     <http://purl.org/dc/elements/1.1/publisher> "UNIBS" ;
     <http://purl.org/dc/elements/1.1/title> "The NextCart Ontology - Consumer" ;
     <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
     <http://purl.org/vocab/vann/preferredNamespacePrefix> "nc-c" ;
     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://knowledge.next-cart.com/consumer#" ;
-    owl:versionInfo "1.0.0" .
+    owl:versionInfo "1.0.0" ;
+    owl:imports 
+        <https://raw.githubusercontent.com/AdaBagozi-UNIBS/food-sustainability-ontology/main/ontologies/food.owl> .
+      #  <http://www.w3.org/2006/vcard/ns#> .
+
+nc-c:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "Represents a human being." .
 
 nc-c:Consumer a owl:Class ;
     rdfs:label "Consumer" ;
-    rdfs:subClassOf schema:Person ;
-    rdfs:comment "Represents who buys and consumes food items." .
+    rdfs:subClassOf nc-c:Person ;
+    rdfs:comment "Represents someone who buys and consumes food items." .
+
+nc-c:Activity a owl:Class ;
+    rdfs:label "Activity" ;
+    rdfs:comment "Represents any kind of activity." .
+
+dbo:Sleep a owl:Class ;
+    rdfs:label "Sleep" ;
+    rdfs:subClassOf nc-c:Activity ;
+    rdfs:comment "Represents the activity of sleeping." .
+
+dbo:Sport a owl:Class ;
+    rdfs:label "Sport" ;
+    rdfs:subClassOf nc-c:Activity ;
+    rdfs:comment "Represents the activity of engaging in sports." .
+
+dbo:Running a owl:Class ;
+    rdfs:label "Running" ;
+    rdfs:subClassOf dbo:Sport ;
+    rdfs:comment "Represents the sport of running." .
+
+dbo:Swimming a owl:Class ;
+    rdfs:label "Swimming" ;
+    rdfs:subClassOf dbo:Sport ;
+    rdfs:comment "Represents the sport of swimming." .
+
+nc-c:ShoppingList a owl:Class ;
+    rdfs:label "Shopping List" ;
+    rdfs:comment "Represents a list of food items to be purchased." .
+
+nc-c:PurchasedFoodItem a owl:Class ;
+    rdfs:label "Purchased Food Item" ;
+    rdfs:comment "Represents a food item that has already been purchased." ;
+    rdfs:subClassOf nc-f:FoodItem .
+
+
+
+
+# Equivalences
+nc-c:Address a owl:Class ;
+    rdfs:label "vCard Address" ;
+    owl:equivalentClass vcard:Address .
 
 # Data Properties
-schema:address a owl:DatatypeProperty ;
-    rdfs:label "address" ;
+nc-c:hasAddress a owl:ObjectProperty ;
+    rdfs:label "has address" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range xsd:String .
+    rdfs:range vcard:Address .
 
-schema:birthDate a owl:DatatypeProperty ;
+schema:birthDate a owl:DatatypeProperty;
     rdfs:label "birth date" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range xsd:Date .
+    rdfs:range rdfs:Date .
 
-schema:familyName a owl:DatatypeProperty ;
+schema:familyName a owl:DatatypeProperty;
     rdfs:label "family name" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range xsd:String .
+    rdfs:range rdfs:String .
 
-schema:gender a owl:DatatypeProperty ;
+schema:gender a owl:DatatypeProperty;
     rdfs:label "gender" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range xsd:String .
+    rdfs:range rdfs:String .
 
-schema:givenName a owl:DatatypeProperty ;
+schema:givenName a owl:DatatypeProperty;
     rdfs:label "given name" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range xsd:String .
+    rdfs:range rdfs:String .
 
-schema:height a owl:DatatypeProperty ;
+schema:height a owl:DatatypeProperty;
     rdfs:label "height" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range xsd:Float .
+    rdfs:range rdfs:Float .
+
+nc-c:hasDate a owl:DatatypeProperty;
+    rdfs:label "has date" ;
+    rdfs:domain nc-c:Activity ;
+    rdfs:range rdfs:Date .
+
+nc-c:hasDuration a owl:DatatypeProperty;
+    rdfs:label "has duration" ;
+    rdfs:domain nc-c:Activity ;
+    rdfs:range rdfs:Integer .
+
+nc-c:hasFrequency a owl:DatatypeProperty ;
+    rdfs:label "has frequency" ;
+    rdfs:domain nc-c:Activity ;
+    rdfs:range rdfs:Integer .
+
+# Object Properties
+nc-c:performs a owl:ObjectProperty ;
+    rdfs:label "performs" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range nc-c:Activity .
+
+nc-c:includesItem a owl:ObjectProperty ;
+    rdfs:label "includes item" ;
+    rdfs:domain nc-c:ShoppingList ;
+    rdfs:range nc-f:FoodItem .
+
+nc-c:ownsShoppingList a owl:ObjectProperty ;
+    rdfs:label "owns shopping list" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range nc-c:ShoppingList .
+
+nc-c:ownsPurchasedItem a owl:ObjectProperty ;
+    rdfs:label "owns purchased item" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range nc-c:PurchasedFoodItem .
+
+
+# Individuals
+nc-c:JohnDoe a nc-c:Consumer ;
+    schema:givenName "John" ;
+    schema:familyName "Doe" ;
+    schema:birthDate "1980-01-01"^^xsd:date ;
+    schema:gender "Male" ;
+    schema:height "180.5"^^xsd:Float ;
+    vcard:hasAddress [
+        a vcard:Address ;
+        vcard:street-address "123 Main St" ;
+        vcard:locality "Anytown" ;
+        vcard:region "Anystate" ;
+        vcard:postal-code "12345" ;
+        vcard:country-name "USA"
+    ] .
+
+nc-c:JaneSmith a nc-c:Consumer ;
+    schema:givenName "Jane" ;
+    schema:familyName "Smith" ;
+    schema:birthDate "1985-02-15"^^xsd:date ;
+    schema:gender "Female" ;
+    schema:height "165.2"^^xsd:Float ;
+    vcard:hasAddress [
+        a vcard:Address ;
+        vcard:street-address "456 Elm St" ;
+        vcard:locality "Othertown" ;
+        vcard:region "Anystate" ;
+        vcard:postal-code "67890" ;
+        vcard:country-name "USA"
+    ] .
+
+nc-c:AliceJohnson a nc-c:Consumer ;
+    schema:givenName "Alice" ;
+    schema:familyName "Johnson" ;
+    schema:birthDate "1990-03-10"^^xsd:date ;
+    schema:gender "Female" ;
+    schema:height "170.0"^^xsd:Float ;
+    vcard:hasAddress [
+        a vcard:Address ;
+        vcard:street-address "789 Oak St" ;
+        vcard:locality "Anycity" ;
+        vcard:region "Anystate" ;
+        vcard:postal-code "10112" ;
+        vcard:country-name "USA"
+    ] .
+
+nc-c:BobBrown a nc-c:Consumer ;
+    schema:givenName "Bob" ;
+    schema:familyName "Brown" ;
+    schema:birthDate "1975-04-20"^^xsd:date ;
+    schema:gender "Male" ;
+    schema:height "175.3"^^xsd:Float ;
+    vcard:hasAddress [
+        a vcard:Address ;
+        vcard:street-address "101 Maple St" ;
+        vcard:locality "Somecity" ;
+        vcard:region "Anystate" ;
+        vcard:postal-code "11122" ;
+        vcard:country-name "USA"
+    ] .

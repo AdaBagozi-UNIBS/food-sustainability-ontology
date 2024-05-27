@@ -1,0 +1,178 @@
+@prefix nc-f: <https://knowledge.next-cart.com/food#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fo: <http://purl.obolibrary.org/obo/> .
+@prefix tb: <https://w3id.org/timebank/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+
+nc-f: a owl:Ontology ;
+    <http://purl.org/dc/elements/1.1/creator> "Anisa Rula" , "Ada Bagozi" ;
+    <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini" , "Michele Melchiori" ;
+    owl:versionIRI <https://knowledge.next-cart.com/food/1.0.0> ;
+    <http://purl.org/dc/elements/1.1/publisher> "UNIBS" ;
+    <http://purl.org/dc/elements/1.1/title> "The NextCart Ontology - Food" ;
+    <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+    <http://purl.org/vocab/vann/preferredNamespacePrefix> "nc-f" ;
+    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://knowledge.next-cart.com/food#" ;
+    owl:versionInfo "1.0.0" .
+
+# Classes
+
+
+nc-f:FoodItem a owl:Class ;
+    rdfs:label "Food Item" .
+
+nc-f:FoodCategories a owl:Class ;
+    rdfs:label "Food Categories" .
+
+nc-f:Dairy a owl:Class ;
+    rdfs:label "Dairy" ;
+    rdfs:subClassOf nc-f:FoodCategories .
+
+nc-f:Fruit a owl:Class ;
+    rdfs:label "Fruit" ;
+    rdfs:subClassOf nc-f:FoodCategories .
+
+
+schema:suitableForDiet a owl:ObjectProperty ;
+    rdfs:label "suitable for diet" ;
+    rdfs:domain fo:Food ;
+    rdfs:range schema:RestrictedDiet .
+
+
+nc-f:NutritionInformation a owl:Class ;
+    rdfs:label "Nutrition Information" .
+
+nc-f:Carbohydrates a owl:Class ;
+    rdfs:label "Carbohydrates" ;
+    rdfs:subClassOf nc-f:NutritionalInformation .
+
+nc-f:Fat a owl:Class ;
+    rdfs:label "Fat" ;
+    rdfs:subClassOf nc-f:NutritionalInformation .
+
+nc-f:Protein a owl:Class ;
+    rdfs:label "Protein" ;
+    rdfs:subClassOf nc-f:NutritionalInformation .
+
+schema:RestrictedDiet a owl:Class ;
+    rdfs:label "Restricted Diet"
+
+schema:DiabeticDiet a owl:Class ;
+    rdfs:label "Diabetic Diet" ;
+    rdfs:subClassOf schema:RestrictedDiet .
+
+schema:GlutenFreeDiet a owl:Class ;
+    rdfs:label "Gluten Free Diet" ;
+    rdfs:subClassOf schema:RestrictedDiet .
+
+schema:ReligiousDiet a owl:Class ; 
+    rdfs:label "Religious Diet" ;
+    rdfs:subClassOf schema:RestrictedDiet .
+
+schema:VeganDiet a owl:Class ;
+    rdfs:label "Vegan Diet" ;
+    rdfs:subClassOf schema:RestrictedDiet .
+
+schema:VegetarianDiet a owl:Class ;
+    rdfs:label "Vegetarian Diet" ;
+    rdfs:subClassOf schema:RestrictedDiet .
+
+schema:HalalDiet a owl:Class ;
+    rdfs:label "Halal Diet" ;
+    rdfs:subClassOf schema:ReligiousDiet .
+
+schema:HinduDiet a owl:Class ;
+    rdfs:label "Hindu Diet" ;
+    rdfs:subClassOf schema:ReligiousDiet .
+
+schema:KosherDiet a owl:Class ;
+    rdfs:label "Kosher Diet" ;
+    rdfs:subClassOf schema:ReligiousDiet .
+
+
+nc-f:Health a owl:Class ;
+    rdfs:label "Health" .
+
+tb:FoodAllergy a owl:Class ;
+    rdfs:label "Food Allergy" ;
+    rdfs:subClassOf nc-f:Health .
+
+tb:EggAllergy a owl:Class ;
+    rdfs:label "Egg Allergy" ;
+    rdfs:subClassOf tb:FoodAllergy .
+
+tb:GlutenAllergy a owl:Class ;
+    rdfs:label "Gluten Allergy" ;
+    rdfs:subClassOf tb:FoodAllergy .
+
+tb:MilkAllergy a owl:Class ;
+    rdfs:label "Milk Allergy" ;
+    rdfs:subClassOf tb:FoodAllergy .
+
+tb:NutsAllergy a owl:Class ;
+    rdfs:label "Nuts Allergy" ;
+    rdfs:subClassOf tb:FoodAllergy .
+
+tb:SeafoodAllergy a owl:Class ; 
+    rdfs:label "Seafood Allergy" ;
+    rdfs:subClassOf tb:FoodAllergy .
+
+tb:FoodIntollerance a owl:Class ;
+    rdfs:label "Food Intollerance" ;
+    rdfs:subClassOf nc-f:Health .
+
+tb:GlutenIntollerance a owl:Class ;
+    rdfs:label "Gluten Intollerance" ;
+    rdfs:subClassOf tb:FoodIntollerance .
+
+tb:LactoseIntollerance a owl:Class ;
+    rdfs:label "Lactose Intollerance" ;
+    rdfs:subClassOf tb:FoodIntollerance .
+
+# Object Properties
+nc-f:belongsToCategory a owl:ObjectProperty ;
+    rdfs:label "belongs to category" ;
+    rdfs:domain nc-f:FoodItem ;
+    rdfs:range nc-f:FoodCategories .
+
+
+nc-f:hasNutritionalInformat a owl:ObjectProperty ;
+    rdfs:label "has nutritional info" ;
+    rdfs:domain nc-f:FoodItem ;
+    rdfs:range nc-f:NutritionInformation .
+
+
+nc-f:belongsTo a owl:ObjectProperty ;
+    rdfs:label "belongs to" ;
+    rdfs:domain fo:Food ;
+    rdfs:range nc-f:FoodCategories .
+
+nc-f:hasCalories a owl:DatatypeProperty ;
+    rdfs:label "has calories" ;
+    rdfs:domain nc-f:NutritionInformation ;
+    rdfs:range xsd:float .
+
+nc-f:hasNutritionInformation a owl:ObjectProperty ;
+    rdfs:label "has nutrition information" ;
+    rdfs:domain nc-f:FoodCategories ;
+    rdfs:range nc-f:NutritionInformation .
+
+
+nc-f:includeFood a owl:ObjectProperty ;
+    rdfs:label "include food" ;
+    rdfs:domain schema:RestrictedDiet ;
+    rdfs:range fo:Food .
+
+nc-f:meetHealthRequirements a owl:ObjectProperty ;
+    rdfs:label "meet health requirements" ;
+    rdfs:domain schema:RestrictedDiet ;
+    rdfs:range nc-f:Health .
+
+nc-f:suitableFor a owl:ObjectProperty ;
+    rdfs:label "suitable for" ;
+    rdfs:domain fo:Food ;
+    rdfs:range nc-f:Health .
+
