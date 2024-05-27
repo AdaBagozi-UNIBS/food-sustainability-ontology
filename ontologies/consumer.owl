@@ -1,0 +1,57 @@
+@prefix nc-c: <https://knowledge.next-cart.com/consumer#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fo: <http://purl.obolibrary.org/obo/> .
+@prefix tb: <https://w3id.org/timebank/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+
+nc-c: a owl:Ontology ;
+    <http://purl.org/dc/elements/1.1/creator> "Anisa Rula" ,
+                                             "Ada Bagozi" ;
+    <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini",
+                                                  "Michele Melchiori";
+    owl:versionIRI <https://knowledge.next-cart.com/consumer/1.0.0> ;
+    <http://purl.org/dc/elements/1.1/publisher> "UNIBS" ;
+    <http://purl.org/dc/elements/1.1/title> "The NextCart Ontology - Consumer" ;
+    <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+    <http://purl.org/vocab/vann/preferredNamespacePrefix> "nc-c" ;
+    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://knowledge.next-cart.com/consumer#" ;
+    owl:versionInfo "1.0.0" .
+
+nc-c:Consumer a owl:Class ;
+    rdfs:label "Consumer" ;
+    rdfs:subClassOf schema:Person ;
+    rdfs:comment "Represents who buys and consumes food items." .
+
+# Data Properties
+schema:address a owl:DatatypeProperty ;
+    rdfs:label "address" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range xsd:String .
+
+schema:birthDate a owl:DatatypeProperty ;
+    rdfs:label "birth date" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range xsd:Date .
+
+schema:familyName a owl:DatatypeProperty ;
+    rdfs:label "family name" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range xsd:String .
+
+schema:gender a owl:DatatypeProperty ;
+    rdfs:label "gender" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range xsd:String .
+
+schema:givenName a owl:DatatypeProperty ;
+    rdfs:label "given name" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range xsd:String .
+
+schema:height a owl:DatatypeProperty ;
+    rdfs:label "height" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range xsd:Float .
