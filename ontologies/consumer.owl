@@ -22,8 +22,7 @@ nc-c: a owl:Ontology ;
     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://knowledge.next-cart.com/consumer#" ;
     owl:versionInfo "1.0.0" ;
     owl:imports 
-        <https://raw.githubusercontent.com/AdaBagozi-UNIBS/food-sustainability-ontology/main/ontologies/food.owl> .
-      #  <http://www.w3.org/2006/vcard/ns#> .
+        <https://github.com/AdaBagozi-UNIBS/food-sustainability-ontology/blob/main/ontologies/health-dietart.owl> .
 
 nc-c:Person a owl:Class ;
     rdfs:label "Person" ;
@@ -76,11 +75,6 @@ nc-c:Address a owl:Class ;
     owl:equivalentClass vcard:Address .
 
 # Data Properties
-nc-c:hasAddress a owl:ObjectProperty ;
-    rdfs:label "has address" ;
-    rdfs:domain nc-c:Consumer ;
-    rdfs:range vcard:Address .
-
 schema:birthDate a owl:DatatypeProperty;
     rdfs:label "birth date" ;
     rdfs:domain nc-c:Consumer ;
@@ -122,6 +116,12 @@ nc-c:hasFrequency a owl:DatatypeProperty ;
     rdfs:range rdfs:Integer .
 
 # Object Properties
+
+nc-c:hasAddress a owl:ObjectProperty ;
+    rdfs:label "has address" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range vcard:Address .
+
 nc-c:performs a owl:ObjectProperty ;
     rdfs:label "performs" ;
     rdfs:domain nc-c:Consumer ;
