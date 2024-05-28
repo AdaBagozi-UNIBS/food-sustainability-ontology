@@ -36,7 +36,7 @@ nc-h:hasRestrictedDiet a owl:ObjectProperty ;
 nc-h:hasHealthConditions a owl:ObjectProperty ;
     rdfs:label "has health conditions" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range nc-h:HealthConditions .
+    rdfs:range nc-h:Health .
 
 nc-s:hasSustainabilityPreferences a owl:ObjectProperty ;
     rdfs:label "has sustainability preferences" ;
