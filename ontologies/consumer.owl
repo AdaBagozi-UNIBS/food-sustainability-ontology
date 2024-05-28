@@ -20,9 +20,7 @@ nc-c: a owl:Ontology ;
     <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
     <http://purl.org/vocab/vann/preferredNamespacePrefix> "nc-c" ;
     <http://purl.org/vocab/vann/preferredNamespaceUri> "https://knowledge.next-cart.com/consumer#" ;
-    owl:versionInfo "1.0.0" ;
-    owl:imports 
-        <https://github.com/AdaBagozi-UNIBS/food-sustainability-ontology/blob/main/ontologies/health-dietart.owl> .
+    owl:versionInfo "1.0.0" .
 
 nc-c:Person a owl:Class ;
     rdfs:label "Person" ;
