@@ -16,7 +16,7 @@ nc-f: a owl:Ontology ;
     <http://purl.org/dc/elements/1.1/title> "The NextCart Ontology - Food" ;
     <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
     <http://purl.org/vocab/vann/preferredNamespacePrefix> "nc-f" ;
-    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://knowledge.next-cart.com/food#" ;
+    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://knowledge.next-cart.com/health#" ;
     owl:versionInfo "1.0.0" .
 
 nc-f:FoodItem a owl:Class ;
