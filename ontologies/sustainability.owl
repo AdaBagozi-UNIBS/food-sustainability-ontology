@@ -130,8 +130,13 @@ nc-fsc:processedIn a owl:ObjectProperty ;
     rdfs:domain nc-f:FoodItem ;
     rdfs:range nc-fsc:FoodSupplyChain .
 
+
 nc-s:impacts a owl:ObjectProperty ;
     rdfs:domain nc-fsc:Stakeholder ;
+    rdfs:range nc-s:Sustainability .
+
+nc-s:hasSustainabilityMetric a owl:ObjectProperty ;
+    rdfs:domain nc-f:FoodItem ;
     rdfs:range nc-s:Sustainability .
 
 # Data Properties

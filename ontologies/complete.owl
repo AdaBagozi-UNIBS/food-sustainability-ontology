@@ -149,8 +149,8 @@ nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
 
 # Consumer Behavior Instances
 nc-c:PurchaseList1 a nc-c:PurchasedList ;
-    nc-c:containedInPurchasedList nc-f:Salmon, nc-f:Beef .
-    nc-c:purgasedOn "2024-05-28"
+    nc-c:containedInPurchasedList nc-f:Salmon, nc-f:Beef ;
+    nc-c:purchasedOn "2024-05-28"^^xsd:date .
 
 nc-c:JohnDoe nc-c:hasPurchaseHistory nc-c:PurchaseHistory1 ;
     nc-c:interestedIn nc-s:LowerWaterFootprint ;
