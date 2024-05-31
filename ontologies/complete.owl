@@ -47,7 +47,7 @@ nc-s:hasSustainabilityPreferences a owl:ObjectProperty ;
 # Example instances based on common ontology structures
 
 # Health and Nutritional Monitoring Instances
-nc-complete:Salmon a nc-f:FoodItem ;
+nc-f:Salmon a nc-f:FoodItem ;
     nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
     nc-h:impactsHealthCondition nc-h:CardiovascularHealth .
 
@@ -88,6 +88,7 @@ nc-c:PurchaseHistory1 a nc-c:PurchaseHistory ;
 nc-c:JohnDoe nc-c:hasPurchaseHistory nc-c:PurchaseHistory1 ;
     nc-c:interestedIn nc-s:LowerWaterFootprint ;
     nc-c:prefers nc-f:TofuSustainable .
+
 #Instances
 nc-c:JohnDoe a nc-c:Consumer ;
     rdfs:label "John Doe" ;
@@ -160,3 +161,18 @@ nc-h:Hypertension a nc-h:Health ;
 
 nc-c:Cycling a nc-c:Activity ;
     rdfs:label "Cycling" .
+
+nc-f:Salmon a nc-f:FoodItem ;
+    rdfs:label "Salmon" ;
+    nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
+    nc-f:hasNutritionInformation "Protein: 20g, Fat: 5g, Carbohydrates: 0g"^^xsd:string ;
+    nc-h:impactsHealthCondition nc-h:CardiovascularHealth ;
+    nc-s:hasSustainabilityMetric nc-s:WaterFootprint, nc-s:CarbonFootprint .
+
+nc-s:WaterFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Water Footprint" ;
+    nc-s:value "2500 liters/kg"^^xsd:string .
+
+nc-s:CarbonFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Carbon Footprint" ;
+    nc-s:value "3 kg CO2/kg"^^xsd:string .
