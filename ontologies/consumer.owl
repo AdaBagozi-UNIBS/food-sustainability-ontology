@@ -69,7 +69,6 @@ nc-c:PurchasedFoodItem a owl:Class ;
 
 # Equivalences
 nc-c:Address a owl:Class ;
-    rdfs:label "vCard Address" ;
     owl:equivalentClass vcard:Address .
 
 # Data Properties

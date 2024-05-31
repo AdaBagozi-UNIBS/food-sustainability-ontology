@@ -42,3 +42,49 @@ nc-s:hasSustainabilityPreferences a owl:ObjectProperty ;
     rdfs:label "has sustainability preferences" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-s:Sustainability .
+
+
+# Example instances based on common ontology structures
+
+# Health and Nutritional Monitoring Instances
+nc-complete:Salmon a nc-f:FoodItem ;
+    nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
+    nc-h:impactsHealthCondition nc-h:CardiovascularHealth .
+
+nc-h:CardiovascularHealth a nc-h:HealthCondition .
+
+nc-f:HighProtein a nc-f:Nutrient .
+
+nc-f:LowFat a nc-f:Nutrient .
+
+nc-h:LowSodiumDiet a nc-h:DietaryRestriction .
+
+nc-c:Running a nc-c:PhysicalActivity .
+
+nc-c:JohnDoe a nc-c:Consumer ;
+    nc-h:hasDietaryRestriction nc-h:LowSodiumDiet ;
+    nc-c:performsActivity nc-c:Running .
+
+# Sustainable Shopping and Consumption Instances
+nc-f:Beef a nc-f:FoodItem ;
+    nc-s:hasSustainabilityMetric nc-s:LowerWaterFootprint ;
+    nc-f:hasSustainableAlternative nc-f:TofuSustainable .
+
+nc-f:Tofu a nc-f:FoodItem ;
+    nc-s:hasSustainabilityMetric nc-s:LowerWaterFootprint .
+
+nc-s:LowerWaterFootprint a nc-s:SustainabilityMetric .
+
+nc-f:TofuSustainable a nc-f:SustainableAlternative .
+
+nc-s:BuyLessBeef a nc-s:WasteReduction .
+
+nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
+
+# Consumer Behavior Instances
+nc-c:PurchaseHistory1 a nc-c:PurchaseHistory ;
+    nc-c:hasPurchased nc-f:Salmon, nc-f:Beef .
+
+nc-c:JohnDoe nc-c:hasPurchaseHistory nc-c:PurchaseHistory1 ;
+    nc-c:interestedIn nc-s:LowerWaterFootprint ;
+    nc-c:prefers nc-f:TofuSustainable .
