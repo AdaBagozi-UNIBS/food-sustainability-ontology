@@ -175,7 +175,7 @@ nc-h:includeFood a owl:ObjectProperty ;
     rdfs:label "includes food" ;
     rdfs:comment "Specifies food items included in a restricted diet." ;
     rdfs:domain schema:RestrictedDiet ;
-    rdfs:range fo:Food .
+    rdfs:range nc-f:FoodItem .
 
 nc-h:meetHealthRequirements a owl:ObjectProperty ;
     rdfs:label "meets health requirements" ;
