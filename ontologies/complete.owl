@@ -51,7 +51,6 @@ nc-f:Salmon a nc-f:FoodItem ;
     nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
     nc-h:impactsHealthCondition nc-h:CardiovascularHealth .
 
-nc-h:CardiovascularHealth a nc-h:HealthCondition .
 
 nc-f:HighProtein a nc-f:Nutrient .
 
@@ -109,7 +108,7 @@ nc-f:Tofu a nc-f:FoodItem ;
     rdfs:label "Tofu" ;
     nc-s:hasSustainabilityMetric "WaterFootprint: 326 liters/kg, CarbonFootprint: 2 kg CO2/kg"^^xsd:string .
 
-nc-h:CardiovascularHealth a nc-h:Health ;
+nc-h:CardiovascularHealth a nc-h:HealthConditions ;
     rdfs:label "Cardiovascular Health" .
 
 nc-c:Running a nc-c:Activity ;
