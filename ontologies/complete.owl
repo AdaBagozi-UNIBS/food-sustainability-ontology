@@ -59,16 +59,16 @@ nc-f:Carbohydrates a nc-f:NutritionInformation ;
     rdfs:label "Carbohydrates" ;
     nc-f:value "g"^^xsd:string .
 
-nc-f:HighProtein a nc-f:Nutrient ;
+nc-f:HighProtein a nc-f:NutritionInformation ;
     rdfs:label "High Protein" .
 
-nc-f:LowFat a nc-f:Nutrient ;
+nc-f:LowFat a nc-f:NutritionInformation ;
     rdfs:label "Low Fat" .
 
 # Health and Nutritional Monitoring Instances
 nc-f:Salmon a nc-f:FoodItem ;
     nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
-    nc-h:suitableFor nc-h:CardiovascularHealth ;
+    nc-h:isSuitableFor nc-h:CardiovascularHealth ;
     nc-f:hasNutritionInformation nc-f:SalmonNutrition ;
     nc-s:hasSustainabilityMetric nc-s:SalmonWaterFootprint, nc-s:SalmonCarbonFootprint .
 
@@ -148,8 +148,9 @@ nc-s:BuyLessBeef a nc-s:WasteReduction ;
 nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
 
 # Consumer Behavior Instances
-nc-c:PurchaseHistory1 a nc-c:PurchaseHistory ;
-    nc-c:hasPurchased nc-f:Salmon, nc-f:Beef .
+nc-c:PurchaseList1 a nc-c:PurchasedList ;
+    nc-c:containedInPurchasedList nc-f:Salmon, nc-f:Beef .
+    nc-c:purgasedOn "2024-05-28"
 
 nc-c:JohnDoe nc-c:hasPurchaseHistory nc-c:PurchaseHistory1 ;
     nc-c:interestedIn nc-s:LowerWaterFootprint ;

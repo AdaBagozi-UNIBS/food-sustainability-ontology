@@ -61,9 +61,7 @@ nc-c:ShoppingList a owl:Class ;
 
 nc-c:PurchasedList a owl:Class ;
     rdfs:label "Purchased Food Items List" ;
-    rdfs:comment "Represents a list of food items that has already been purchased." ;
-    rdfs:subClassOf nc-f:FoodItem .
-
+    rdfs:comment "Represents a list of food items that has already been purchased." .
 
 
 
@@ -111,6 +109,12 @@ nc-c:hasFrequency a owl:DatatypeProperty ;
     rdfs:label "has frequency" ;
     rdfs:domain nc-c:Activity ;
     rdfs:range rdfs:Integer .
+
+nc-c:purgasedOn a owl:DatatypeProperty;
+    rdfs:label "purchaseDate" ;
+    rdfs:domain nc-c:PurchasedList ;
+    rdfs:range rdfs:Date .
+
 
 # Object Properties
 
