@@ -28,55 +28,122 @@ nc-complete: a owl:Ontology ;
         <https://raw.githubusercontent.com/AdaBagozi-UNIBS/food-sustainability-ontology/main/ontologies/sustainability.owl> .
 
 # Object Properties
-nc-h:hasRestrictedDiet a owl:ObjectProperty ;
+nc-complete:hasRestrictedDiet a owl:ObjectProperty ;
     rdfs:label "has dietary choices" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range nc-f:RestrictedDiet .
+    rdfs:range schema:RestrictedDiet .
 
-nc-h:hasHealthConditions a owl:ObjectProperty ;
+nc-complete:hasHealthConditions a owl:ObjectProperty ;
     rdfs:label "has health conditions" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-h:HealthConditions .
 
-nc-s:hasSustainabilityPreferences a owl:ObjectProperty ;
+nc-complete:hasSustainabilityPreferences a owl:ObjectProperty ;
     rdfs:label "has sustainability preferences" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-s:Sustainability .
 
+# Classes for Nutritional Information
+nc-f:NutritionInformation a owl:Class ;
+    rdfs:label "Nutrition Information" .
 
-# Example instances based on common ontology structures
+nc-f:Protein a nc-f:NutritionInformation ;
+    rdfs:label "Protein" ;
+    nc-f:value "g"^^xsd:string .
+
+nc-f:Fat a nc-f:NutritionInformation ;
+    rdfs:label "Fat" ;
+    nc-f:value "g"^^xsd:string .
+
+nc-f:Carbohydrates a nc-f:NutritionInformation ;
+    rdfs:label "Carbohydrates" ;
+    nc-f:value "g"^^xsd:string .
+
+nc-f:HighProtein a nc-f:Nutrient ;
+    rdfs:label "High Protein" .
+
+nc-f:LowFat a nc-f:Nutrient ;
+    rdfs:label "Low Fat" .
 
 # Health and Nutritional Monitoring Instances
 nc-f:Salmon a nc-f:FoodItem ;
     nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
-    nc-h:impactsHealthCondition nc-h:CardiovascularHealth .
+    nc-h:impactsHealthCondition nc-h:CardiovascularHealth ;
+    nc-f:hasNutritionInformation nc-f:SalmonNutrition ;
+    nc-s:hasSustainabilityMetric nc-s:SalmonWaterFootprint, nc-s:SalmonCarbonFootprint .
 
+nc-f:SalmonNutrition a nc-f:NutritionInformation ;
+    nc-f:Protein "20g"^^xsd:string ;
+    nc-f:Fat "5g"^^xsd:string ;
+    nc-f:Carbohydrates "0g"^^xsd:string .
 
-nc-f:HighProtein a nc-f:Nutrient .
+nc-s:SalmonWaterFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Water Footprint" ;
+    nc-s:value "2500 liters/kg"^^xsd:string .
 
-nc-f:LowFat a nc-f:Nutrient .
+nc-s:SalmonCarbonFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Carbon Footprint" ;
+    nc-s:value "3 kg CO2/kg"^^xsd:string .
 
-nc-h:LowSodiumDiet a nc-h:DietaryRestriction .
+nc-h:LowSodiumDiet a nc-h:RestrictedDiet ;
+    rdfs:label "Low Sodium Diet" .
 
-nc-c:Running a nc-c:PhysicalActivity .
+nc-c:Running a nc-c:Activity ;
+    rdfs:label "Running" .
 
 nc-c:JohnDoe a nc-c:Consumer ;
-    nc-h:hasDietaryRestriction nc-h:LowSodiumDiet ;
-    nc-c:performsActivity nc-c:Running .
+    rdfs:label "John Doe" ;
+    nc-complete:hasRestrictedDiet nc-h:LowSodiumDiet ;
+    nc-c:performsActivity nc-c:Running ;
+    nc-c:hasHealthConditions nc-h:Hypertension ;
+    nc-complete:hasRestrictedDiet nc-h:GlutenFreeDiet .
+
+nc-h:GlutenFreeDiet a nc-h:RestrictedDiet ;
+    rdfs:label "Gluten-Free Diet" .
 
 # Sustainable Shopping and Consumption Instances
 nc-f:Beef a nc-f:FoodItem ;
-    nc-s:hasSustainabilityMetric nc-s:LowerWaterFootprint ;
-    nc-f:hasSustainableAlternative nc-f:TofuSustainable .
+    rdfs:label "Beef" ;
+    nc-s:hasSustainabilityMetric nc-s:BeefWaterFootprint, nc-s:BeefCarbonFootprint ;
+    nc-f:hasSustainableAlternative nc-f:TofuSustainable ;
+    nc-f:hasNutritionInformation nc-f:BeefNutrition .
+
+nc-f:BeefNutrition a nc-f:NutritionInformation ;
+    nc-f:Protein "26g"^^xsd:string ;
+    nc-f:Fat "15g"^^xsd:string ;
+    nc-f:Carbohydrates "0g"^^xsd:string .
+
+nc-s:BeefWaterFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Water Footprint" ;
+    nc-s:value "15400 liters/kg"^^xsd:string .
+
+nc-s:BeefCarbonFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Carbon Footprint" ;
+    nc-s:value "27 kg CO2/kg"^^xsd:string .
 
 nc-f:Tofu a nc-f:FoodItem ;
-    nc-s:hasSustainabilityMetric nc-s:LowerWaterFootprint .
+    rdfs:label "Tofu" ;
+    nc-s:hasSustainabilityMetric nc-s:TofuWaterFootprint, nc-s:TofuCarbonFootprint ;
+    nc-f:hasNutritionInformation nc-f:TofuNutrition .
 
-nc-s:LowerWaterFootprint a nc-s:SustainabilityMetric .
+nc-f:TofuNutrition a nc-f:NutritionInformation ;
+    nc-f:Protein "8g"^^xsd:string ;
+    nc-f:Fat "4g"^^xsd:string ;
+    nc-f:Carbohydrates "2g"^^xsd:string .
 
-nc-f:TofuSustainable a nc-f:SustainableAlternative .
+nc-s:TofuWaterFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Water Footprint" ;
+    nc-s:value "326 liters/kg"^^xsd:string .
 
-nc-s:BuyLessBeef a nc-s:WasteReduction .
+nc-s:TofuCarbonFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Carbon Footprint" ;
+    nc-s:value "2 kg CO2/kg"^^xsd:string .
+
+nc-f:TofuSustainable a nc-f:SustainableAlternative ;
+    rdfs:label "Sustainable Tofu" .
+
+nc-s:BuyLessBeef a nc-s:WasteReduction ;
+    rdfs:label "Buy Less Beef" .
 
 nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
 
@@ -88,44 +155,26 @@ nc-c:JohnDoe nc-c:hasPurchaseHistory nc-c:PurchaseHistory1 ;
     nc-c:interestedIn nc-s:LowerWaterFootprint ;
     nc-c:prefers nc-f:TofuSustainable .
 
-#Instances
-nc-c:JohnDoe a nc-c:Consumer ;
-    rdfs:label "John Doe" ;
-    nc-c:hasDietaryRestriction nc-c:GlutenFreeDiet .
-
-nc-c:GlutenFreeDiet a nc-c:Diet ;
-    rdfs:label "Gluten-Free Diet" .
-
-nc-f:Beef a nc-f:FoodItem ;
-    rdfs:label "Beef" ;
-    nc-s:hasSustainabilityMetric "WaterFootprint: 15400 liters/kg, CarbonFootprint: 27 kg CO2/kg"^^xsd:string .
-
-nc-f:Salmon a nc-f:FoodItem ;
-    rdfs:label "Salmon" ;
-    nc-f:hasNutritionInformation "Protein: 20g, Fat: 5g, Carbohydrates: 0g"^^xsd:string .
-
-nc-f:Tofu a nc-f:FoodItem ;
-    rdfs:label "Tofu" ;
-    nc-s:hasSustainabilityMetric "WaterFootprint: 326 liters/kg, CarbonFootprint: 2 kg CO2/kg"^^xsd:string .
-
 nc-h:CardiovascularHealth a nc-h:HealthConditions ;
     rdfs:label "Cardiovascular Health" .
 
-nc-c:Running a nc-c:Activity ;
-    rdfs:label "Running" .
-
 nc-c:JaneSmith a nc-c:Consumer ;
     rdfs:label "Jane Smith" ;
-    nc-c:hasDietaryRestriction nc-c:VeganDiet .
+    nc-complete:hasRestrictedDiet nc-h:VeganDiet .
 
-nc-c:VeganDiet a nc-c:Diet ;
+nc-h:VeganDiet a nc-h:RestrictedDiet ;
     rdfs:label "Vegan Diet" .
 
 nc-f:Chicken a nc-f:FoodItem ;
     rdfs:label "Chicken" ;
-    nc-f:hasNutritionInformation "Protein: 27g, Fat: 14g, Carbohydrates: 0g"^^xsd:string .
+    nc-f:hasNutritionInformation nc-f:ChickenNutrition .
 
-nc-h:Diabetes a nc-h:Health ;
+nc-f:ChickenNutrition a nc-f:NutritionInformation ;
+    nc-f:Protein "27g"^^xsd:string ;
+    nc-f:Fat "14g"^^xsd:string ;
+    nc-f:Carbohydrates "0g"^^xsd:string .
+
+nc-h:Diabetes a nc-h:HealthConditions ;
     rdfs:label "Diabetes" .
 
 nc-c:Swimming a nc-c:Activity ;
@@ -133,11 +182,39 @@ nc-c:Swimming a nc-c:Activity ;
 
 nc-f:Pork a nc-f:FoodItem ;
     rdfs:label "Pork" ;
-    nc-s:hasSustainabilityMetric "WaterFootprint: 6000 liters/kg, CarbonFootprint: 12 kg CO2/kg"^^xsd:string .
+    nc-s:hasSustainabilityMetric nc-s:PorkWaterFootprint, nc-s:PorkCarbonFootprint ;
+    nc-f:hasNutritionInformation nc-f:PorkNutrition .
+
+nc-f:PorkNutrition a nc-f:NutritionInformation ;
+    nc-f:Protein "21g"^^xsd:string ;
+    nc-f:Fat "10g"^^xsd:string ;
+    nc-f:Carbohydrates "0g"^^xsd:string .
+
+nc-s:PorkWaterFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Water Footprint" ;
+    nc-s:value "6000 liters/kg"^^xsd:string .
+
+nc-s:PorkCarbonFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Carbon Footprint" ;
+    nc-s:value "12 kg CO2/kg"^^xsd:string .
 
 nc-f:Lentils a nc-f:FoodItem ;
     rdfs:label "Lentils" ;
-    nc-s:hasSustainabilityMetric "WaterFootprint: 1250 liters/kg, CarbonFootprint: 0.9 kg CO2/kg"^^xsd:string .
+    nc-s:hasSustainabilityMetric nc-s:LentilsWaterFootprint, nc-s:LentilsCarbonFootprint ;
+    nc-f:hasNutritionInformation nc-f:LentilsNutrition .
+
+nc-f:LentilsNutrition a nc-f:NutritionInformation ;
+    nc-f:Protein "9g"^^xsd:string ;
+    nc-f:Fat "0.5g"^^xsd:string ;
+    nc-f:Carbohydrates "20g"^^xsd:string .
+
+nc-s:LentilsWaterFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Water Footprint" ;
+    nc-s:value "1250 liters/kg"^^xsd:string .
+
+nc-s:LentilsCarbonFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Carbon Footprint" ;
+    nc-s:value "0.9 kg CO2/kg"^^xsd:string .
 
 nc-s:FairTrade a nc-s:Sustainability ;
     rdfs:label "Fair Trade" ;
@@ -145,33 +222,31 @@ nc-s:FairTrade a nc-s:Sustainability ;
 
 nc-c:AliceJohnson a nc-c:Consumer ;
     rdfs:label "Alice Johnson" ;
-    nc-c:hasDietaryRestriction nc-c:VegetarianDiet .
+    nc-complete:hasRestrictedDiet nc-h:VegetarianDiet .
 
-nc-c:VegetarianDiet a nc-c:Diet ;
+nc-h:VegetarianDiet a nc-h:RestrictedDiet ;
     rdfs:label "Vegetarian Diet" .
 
 nc-f:Milk a nc-f:FoodItem ;
     rdfs:label "Milk" ;
-    nc-f:hasNutritionInformation "Protein: 3.4g, Fat: 1g, Carbohydrates: 5g"^^xsd:string ;
-    nc-s:hasSustainabilityMetric "WaterFootprint: 1020 liters/kg, CarbonFootprint: 3 kg CO2/kg"^^xsd:string .
+    nc-f:hasNutritionInformation nc-f:MilkNutrition ;
+    nc-s:hasSustainabilityMetric nc-s:MilkWaterFootprint, nc-s:MilkCarbonFootprint .
+
+nc-f:MilkNutrition a nc-f:NutritionInformation ;
+    nc-f:Protein "3.4g"^^xsd:string ;
+    nc-f:Fat "1g"^^xsd:string ;
+    nc-f:Carbohydrates "5g"^^xsd:string .
+
+nc-s:MilkWaterFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Water Footprint" ;
+    nc-s:value "1020 liters/kg"^^xsd:string .
+
+nc-s:MilkCarbonFootprint a nc-s:SustainabilityMetric ;
+    rdfs:label "Carbon Footprint" ;
+    nc-s:value "3 kg CO2/kg"^^xsd:string .
 
 nc-h:Hypertension a nc-h:HealthConditions ;
     rdfs:label "Hypertension" .
 
 nc-c:Cycling a nc-c:Activity ;
     rdfs:label "Cycling" .
-
-nc-f:Salmon a nc-f:FoodItem ;
-    rdfs:label "Salmon" ;
-    nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
-    nc-f:hasNutritionInformation "Protein: 20g, Fat: 5g, Carbohydrates: 0g"^^xsd:string ;
-    nc-h:impactsHealthCondition nc-h:CardiovascularHealth ;
-    nc-s:hasSustainabilityMetric nc-s:WaterFootprint, nc-s:CarbonFootprint .
-
-nc-s:WaterFootprint a nc-s:SustainabilityMetric ;
-    rdfs:label "Water Footprint" ;
-    nc-s:value "2500 liters/kg"^^xsd:string .
-
-nc-s:CarbonFootprint a nc-s:SustainabilityMetric ;
-    rdfs:label "Carbon Footprint" ;
-    nc-s:value "3 kg CO2/kg"^^xsd:string .
