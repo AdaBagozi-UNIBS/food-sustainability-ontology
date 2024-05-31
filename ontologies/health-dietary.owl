@@ -194,12 +194,6 @@ nc-h:suitableFor a owl:ObjectProperty ;
     rdfs:domain nc-f:FoodItem;
     rdfs:range nc-h:HealthConditions.
 
-nc-h:impactsHealthCondition a owl:ObjectProperty ;
-    rdfs:label "suitable for" ;
-    rdfs:comment "Specifies if a food item impacts the health condition." ;
-    rdfs:domain nc-f:FoodItem;
-    rdfs:range nc-h:HealthConditions.
-
 schema:suitableForDiet a owl:ObjectProperty ;
     rdfs:label "suitable for diet" ;
     rdfs:comment "Specifies the diet suitable for a food item." ;

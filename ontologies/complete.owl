@@ -68,7 +68,7 @@ nc-f:LowFat a nc-f:Nutrient ;
 # Health and Nutritional Monitoring Instances
 nc-f:Salmon a nc-f:FoodItem ;
     nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
-    nc-h:impactsHealthCondition nc-h:CardiovascularHealth ;
+    nc-h:suitableFor nc-h:CardiovascularHealth ;
     nc-f:hasNutritionInformation nc-f:SalmonNutrition ;
     nc-s:hasSustainabilityMetric nc-s:SalmonWaterFootprint, nc-s:SalmonCarbonFootprint .
 
