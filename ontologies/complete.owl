@@ -155,7 +155,7 @@ nc-f:Milk a nc-f:FoodItem ;
     nc-f:hasNutritionInformation "Protein: 3.4g, Fat: 1g, Carbohydrates: 5g"^^xsd:string ;
     nc-s:hasSustainabilityMetric "WaterFootprint: 1020 liters/kg, CarbonFootprint: 3 kg CO2/kg"^^xsd:string .
 
-nc-h:Hypertension a nc-h:Health ;
+nc-h:Hypertension a nc-h:HealthConditions ;
     rdfs:label "Hypertension" .
 
 nc-c:Cycling a nc-c:Activity ;
