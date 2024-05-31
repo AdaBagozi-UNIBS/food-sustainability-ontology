@@ -76,6 +76,7 @@ nc-f:SalmonNutrition a nc-f:NutritionInformation ;
     nc-f:Protein "20g"^^xsd:string ;
     nc-f:Fat "5g"^^xsd:string ;
     nc-f:Carbohydrates "0g"^^xsd:string .
+    
 
 nc-s:SalmonWaterFootprint a nc-s:SustainabilityMetric ;
     rdfs:label "Water Footprint" ;

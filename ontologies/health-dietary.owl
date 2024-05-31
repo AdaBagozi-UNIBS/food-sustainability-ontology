@@ -176,11 +176,6 @@ nc-f:hasNutritionalInformation a owl:ObjectProperty ;
     rdfs:domain nc-f:FoodItem ;
     rdfs:range nc-f:NutritionInformation .
 
-nc-h:includeFood a owl:ObjectProperty ;
-    rdfs:label "includes food" ;
-    rdfs:comment "Specifies food items included in a restricted diet." ;
-    rdfs:domain schema:RestrictedDiet ;
-    rdfs:range nc-f:FoodItem .
 
 nc-h:meetHealthRequirements a owl:ObjectProperty ;
     rdfs:label "meets health requirements" ;
@@ -188,7 +183,7 @@ nc-h:meetHealthRequirements a owl:ObjectProperty ;
     rdfs:domain schema:RestrictedDiet ;
     rdfs:range nc-h:HealthConditions.
 
-nc-h:suitableFor a owl:ObjectProperty ;
+nc-h:suitableForHealthCondition a owl:ObjectProperty ;
     rdfs:label "suitable for" ;
     rdfs:comment "Specifies the health condition suitable for a food item." ;
     rdfs:domain nc-f:FoodItem;
