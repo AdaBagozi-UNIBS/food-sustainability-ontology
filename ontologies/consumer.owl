@@ -110,8 +110,9 @@ nc-c:hasFrequency a owl:DatatypeProperty ;
     rdfs:domain nc-c:Activity ;
     rdfs:range rdfs:Integer .
 
-nc-c:purgasedOn a owl:DatatypeProperty;
-    rdfs:label "purchaseDate" ;
+
+nc-c:purchasedOn a owl:DatatypeProperty;
+    rdfs:label "purchase date" ;
     rdfs:domain nc-c:PurchasedList ;
     rdfs:range rdfs:Date .
 
@@ -152,9 +153,9 @@ nc-c:containedInPurchasedList a owl:ObjectProperty ;
 nc-c:JohnDoe a nc-c:Consumer ;
     schema:givenName "John" ;
     schema:familyName "Doe" ;
-    schema:birthDate "1980-01-01"^^xsd:date ;
+    schema:birthDate "1980-01-01"^^rdfs:date ;
     schema:gender "Male" ;
-    schema:height "180.5"^^xsd:Float ;
+    schema:height "180.5"^^rdfs:Float ;
     vcard:hasAddress [
         a vcard:Address ;
         vcard:street-address "123 Main St" ;
@@ -167,9 +168,9 @@ nc-c:JohnDoe a nc-c:Consumer ;
 nc-c:JaneSmith a nc-c:Consumer ;
     schema:givenName "Jane" ;
     schema:familyName "Smith" ;
-    schema:birthDate "1985-02-15"^^xsd:date ;
+    schema:birthDate "1985-02-15"^^rdfs:date ;
     schema:gender "Female" ;
-    schema:height "165.2"^^xsd:Float ;
+    schema:height "165.2"^^rdfs:Float ;
     vcard:hasAddress [
         a vcard:Address ;
         vcard:street-address "456 Elm St" ;
@@ -182,9 +183,9 @@ nc-c:JaneSmith a nc-c:Consumer ;
 nc-c:AliceJohnson a nc-c:Consumer ;
     schema:givenName "Alice" ;
     schema:familyName "Johnson" ;
-    schema:birthDate "1990-03-10"^^xsd:date ;
+    schema:birthDate "1990-03-10"^^rdfs:date ;
     schema:gender "Female" ;
-    schema:height "170.0"^^xsd:Float ;
+    schema:height "170.0"^^rdfs:Float ;
     vcard:hasAddress [
         a vcard:Address ;
         vcard:street-address "789 Oak St" ;
@@ -197,9 +198,9 @@ nc-c:AliceJohnson a nc-c:Consumer ;
 nc-c:BobBrown a nc-c:Consumer ;
     schema:givenName "Bob" ;
     schema:familyName "Brown" ;
-    schema:birthDate "1975-04-20"^^xsd:date ;
+    schema:birthDate "1975-04-20"^^rdfs:date ;
     schema:gender "Male" ;
-    schema:height "175.3"^^xsd:Float ;
+    schema:height "175.3"^^rdfs:Float ;
     vcard:hasAddress [
         a vcard:Address ;
         vcard:street-address "101 Maple St" ;
