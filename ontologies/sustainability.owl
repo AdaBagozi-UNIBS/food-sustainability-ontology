@@ -118,7 +118,8 @@ nc-s:Composting a owl:Class ;
 # Object Properties
 
 nc-s:hasSustainability a owl:ObjectProperty ;
-    rdfs:domain nc-fsc:FoodSupplyChain ;
+    rdfs:domain nc-fsc:FoodSupplyChain ;    
+    rdfs:label "has sustainability" ;
     rdfs:range nc-s:Sustainability .
 
 nc-fsc:isStakeholderIn a owl:ObjectProperty ;
