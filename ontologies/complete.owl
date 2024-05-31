@@ -42,3 +42,121 @@ nc-s:hasSustainabilityPreferences a owl:ObjectProperty ;
     rdfs:label "has sustainability preferences" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-s:Sustainability .
+
+
+# Example instances based on common ontology structures
+
+# Health and Nutritional Monitoring Instances
+nc-complete:Salmon a nc-f:FoodItem ;
+    nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
+    nc-h:impactsHealthCondition nc-h:CardiovascularHealth .
+
+nc-h:CardiovascularHealth a nc-h:HealthCondition .
+
+nc-f:HighProtein a nc-f:Nutrient .
+
+nc-f:LowFat a nc-f:Nutrient .
+
+nc-h:LowSodiumDiet a nc-h:DietaryRestriction .
+
+nc-c:Running a nc-c:PhysicalActivity .
+
+nc-c:JohnDoe a nc-c:Consumer ;
+    nc-h:hasDietaryRestriction nc-h:LowSodiumDiet ;
+    nc-c:performsActivity nc-c:Running .
+
+# Sustainable Shopping and Consumption Instances
+nc-f:Beef a nc-f:FoodItem ;
+    nc-s:hasSustainabilityMetric nc-s:LowerWaterFootprint ;
+    nc-f:hasSustainableAlternative nc-f:TofuSustainable .
+
+nc-f:Tofu a nc-f:FoodItem ;
+    nc-s:hasSustainabilityMetric nc-s:LowerWaterFootprint .
+
+nc-s:LowerWaterFootprint a nc-s:SustainabilityMetric .
+
+nc-f:TofuSustainable a nc-f:SustainableAlternative .
+
+nc-s:BuyLessBeef a nc-s:WasteReduction .
+
+nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
+
+# Consumer Behavior Instances
+nc-c:PurchaseHistory1 a nc-c:PurchaseHistory ;
+    nc-c:hasPurchased nc-f:Salmon, nc-f:Beef .
+
+nc-c:JohnDoe nc-c:hasPurchaseHistory nc-c:PurchaseHistory1 ;
+    nc-c:interestedIn nc-s:LowerWaterFootprint ;
+    nc-c:prefers nc-f:TofuSustainable .
+#Instances
+nc-c:JohnDoe a nc-c:Consumer ;
+    rdfs:label "John Doe" ;
+    nc-c:hasDietaryRestriction nc-c:GlutenFreeDiet .
+
+nc-c:GlutenFreeDiet a nc-c:Diet ;
+    rdfs:label "Gluten-Free Diet" .
+
+nc-f:Beef a nc-f:FoodItem ;
+    rdfs:label "Beef" ;
+    nc-s:hasSustainabilityMetric "WaterFootprint: 15400 liters/kg, CarbonFootprint: 27 kg CO2/kg"^^xsd:string .
+
+nc-f:Salmon a nc-f:FoodItem ;
+    rdfs:label "Salmon" ;
+    nc-f:hasNutritionInformation "Protein: 20g, Fat: 5g, Carbohydrates: 0g"^^xsd:string .
+
+nc-f:Tofu a nc-f:FoodItem ;
+    rdfs:label "Tofu" ;
+    nc-s:hasSustainabilityMetric "WaterFootprint: 326 liters/kg, CarbonFootprint: 2 kg CO2/kg"^^xsd:string .
+
+nc-h:CardiovascularHealth a nc-h:Health ;
+    rdfs:label "Cardiovascular Health" .
+
+nc-c:Running a nc-c:Activity ;
+    rdfs:label "Running" .
+
+nc-c:JaneSmith a nc-c:Consumer ;
+    rdfs:label "Jane Smith" ;
+    nc-c:hasDietaryRestriction nc-c:VeganDiet .
+
+nc-c:VeganDiet a nc-c:Diet ;
+    rdfs:label "Vegan Diet" .
+
+nc-f:Chicken a nc-f:FoodItem ;
+    rdfs:label "Chicken" ;
+    nc-f:hasNutritionInformation "Protein: 27g, Fat: 14g, Carbohydrates: 0g"^^xsd:string .
+
+nc-h:Diabetes a nc-h:Health ;
+    rdfs:label "Diabetes" .
+
+nc-c:Swimming a nc-c:Activity ;
+    rdfs:label "Swimming" .
+
+nc-f:Pork a nc-f:FoodItem ;
+    rdfs:label "Pork" ;
+    nc-s:hasSustainabilityMetric "WaterFootprint: 6000 liters/kg, CarbonFootprint: 12 kg CO2/kg"^^xsd:string .
+
+nc-f:Lentils a nc-f:FoodItem ;
+    rdfs:label "Lentils" ;
+    nc-s:hasSustainabilityMetric "WaterFootprint: 1250 liters/kg, CarbonFootprint: 0.9 kg CO2/kg"^^xsd:string .
+
+nc-s:FairTrade a nc-s:Sustainability ;
+    rdfs:label "Fair Trade" ;
+    nc-s:description "Products produced and traded in compliance with Fair Trade standards" .
+
+nc-c:AliceJohnson a nc-c:Consumer ;
+    rdfs:label "Alice Johnson" ;
+    nc-c:hasDietaryRestriction nc-c:VegetarianDiet .
+
+nc-c:VegetarianDiet a nc-c:Diet ;
+    rdfs:label "Vegetarian Diet" .
+
+nc-f:Milk a nc-f:FoodItem ;
+    rdfs:label "Milk" ;
+    nc-f:hasNutritionInformation "Protein: 3.4g, Fat: 1g, Carbohydrates: 5g"^^xsd:string ;
+    nc-s:hasSustainabilityMetric "WaterFootprint: 1020 liters/kg, CarbonFootprint: 3 kg CO2/kg"^^xsd:string .
+
+nc-h:Hypertension a nc-h:Health ;
+    rdfs:label "Hypertension" .
+
+nc-c:Cycling a nc-c:Activity ;
+    rdfs:label "Cycling" .
