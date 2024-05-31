@@ -110,14 +110,14 @@ schema:KosherDiet a owl:Class ;
     rdfs:comment "Represents a diet that follows Jewish dietary laws." ;
     rdfs:subClassOf schema:ReligiousDiet .
 
-nc-h:Health a owl:Class ;
-    rdfs:label "Health" ;
+nc-h:HealthConditions a owl:Class ;
+    rdfs:label "Health Conditions" ;
     rdfs:comment "Represents health-related information." .
 
 tb:FoodAllergy a owl:Class ;
     rdfs:label "Food Allergy" ;
     rdfs:comment "Represents various food allergies." ;
-    rdfs:subClassOf nc-h:Health .
+    rdfs:subClassOf nc-h:HealthConditions .
 
 tb:EggAllergy a owl:Class ;
     rdfs:label "Egg Allergy" ;
@@ -147,7 +147,7 @@ tb:SeafoodAllergy a owl:Class ;
 tb:FoodIntolerance a owl:Class ;
     rdfs:label "Food Intolerance" ;
     rdfs:comment "Represents various food intolerances." ;
-    rdfs:subClassOf nc-h:Health .
+    rdfs:subClassOf nc-h:HealthConditions.
 
 tb:GlutenIntolerance a owl:Class ;
     rdfs:label "Gluten Intolerance" ;
@@ -158,6 +158,11 @@ tb:LactoseIntolerance a owl:Class ;
     rdfs:label "Lactose Intolerance" ;
     rdfs:comment "Represents an intolerance to lactose." ;
     rdfs:subClassOf tb:FoodIntolerance .
+
+tb:Pathology a owl:Class ;
+    rdfs:label "Pathology" ;
+    rdfs:comment "Represents various pathologies ." ;
+    rdfs:subClassOf nc-h:HealthConditions .
 
 nc-f:belongsToCategory a owl:ObjectProperty ;
     rdfs:label "belongs to category" ;
@@ -181,13 +186,13 @@ nc-h:meetHealthRequirements a owl:ObjectProperty ;
     rdfs:label "meets health requirements" ;
     rdfs:comment "Specifies health requirements met by a restricted diet." ;
     rdfs:domain schema:RestrictedDiet ;
-    rdfs:range nc-h:Health .
+    rdfs:range nc-h:HealthConditions.
 
 nc-h:suitableFor a owl:ObjectProperty ;
     rdfs:label "suitable for" ;
     rdfs:comment "Specifies the health condition suitable for a food item." ;
     rdfs:domain nc-f:FoodItem;
-    rdfs:range nc-h:Health .
+    rdfs:range nc-h:HealthConditions.
 
 schema:suitableForDiet a owl:ObjectProperty ;
     rdfs:label "suitable for diet" ;
