@@ -8,7 +8,6 @@
 @prefix tb: <https://w3id.org/timebank/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix foodon: <https://foodon.org/> .
-@prefix ncit: <http://purl.obolibrary.org/obo/ncit> .
 
 
 nc-c: a owl:Ontology ;
