@@ -9,10 +9,10 @@
 @prefix dbo: <http://dbpedia.org/ontology/> .
 
 nc-f: a owl:Ontology ;
-    <http://purl.org/dc/elements/1.1/creator> "Anisa Rula" , "Ada Bagozi" ;
-    <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini" , "Michele Melchiori" ;
+    <http://purl.org/dc/elements/1.1/creator> "---" ;
+    <http://purl.org/dc/elements/1.1/contributor> "---" ;
     owl:versionIRI <https://knowledge.next-cart.com/food/1.0.0> ;
-    <http://purl.org/dc/elements/1.1/publisher> "UNIBS" ;
+    <http://purl.org/dc/elements/1.1/publisher> "---" ;
     <http://purl.org/dc/elements/1.1/title> "The NextCart Ontology - Food" ;
     <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
     <http://purl.org/vocab/vann/preferredNamespacePrefix> "nc-f" ;
