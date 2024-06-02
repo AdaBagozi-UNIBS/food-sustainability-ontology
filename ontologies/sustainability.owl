@@ -115,12 +115,22 @@ nc-s:Composting a owl:Class ;
     rdfs:subClassOf nc-s:WasteManagement ;
     rdfs:comment "Organic waste management through composting." .
 
+nc-s:SustainableAlternative a owl:Class ;
+    rdfs:comment "Sustainable alternatives." .
+
+
 # Object Properties
 
 nc-s:hasSustainability a owl:ObjectProperty ;
     rdfs:domain nc-fsc:FoodSupplyChain ;    
     rdfs:label "has sustainability" ;
     rdfs:range nc-s:Sustainability .
+
+
+nc-s:hasSustainableAlternatives a owl:ObjectProperty ;
+    rdfs:domain nc-f:FoodItem ;    
+    rdfs:label "has sustainable alternatives" ;
+    rdfs:range nc-s:SustainableAlternative .
 
 nc-fsc:isStakeholderIn a owl:ObjectProperty ;
     rdfs:domain nc-fsc:Stakeholder ;

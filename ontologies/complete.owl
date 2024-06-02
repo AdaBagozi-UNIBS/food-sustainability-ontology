@@ -43,9 +43,6 @@ nc-complete:hasSustainabilityPreferences a owl:ObjectProperty ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-s:Sustainability .
 
-# Classes for Nutritional Information
-nc-f:NutritionInformation a owl:Class ;
-    rdfs:label "Nutrition Information" .
 
 nc-f:Protein a nc-f:NutritionInformation ;
     rdfs:label "Protein" ;
@@ -149,15 +146,15 @@ nc-s:BuyLessBeef a nc-s:FoodWaste ;
 nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
 
 # Consumer Behavior Instances
-nc-c:PurchaseList1 a nc-c:PurchasedList ;
-    nc-c:containedInPurchasedList nc-f:Salmon, nc-f:Beef ;
+nc-c:PurchaseList1 a nc-c:ShoppingCard ;
+    nc-c:containedInShoppingCard nc-f:Salmon, nc-f:Beef ;
     nc-c:purchasedOn "2024-05-28"^^rdfs:date .
 
 nc-c:ShoppingList1 a nc-c:ShoppingList ;
     nc-c:containedInShoppinList nc-f:Salmon, nc-f:Tofu .
 
-nc-c:PurchaseList1 a nc-c:PurchasedList ;
-    nc-c:containedInPurchasedList nc-f:Salmon, nc-f:Beef ;
+nc-c:PurchaseList1 a nc-c:ShoppingCard ;
+    nc-c:containedInShoppingCard nc-f:Salmon, nc-f:Beef ;
     nc-c:purchasedOn "2024-05-28"^^rdfs:date .
 
 nc-c:JohnDoe nc-c:containedInShoppingList nc-c:ShoppingList1 ;

@@ -68,7 +68,7 @@ nc-c:ShoppingItem a owl:Class ;
     rdfs:comment "Represents an item in the shopping list or cart, detailing its quantity and price." .
     
 nc-c:ShoppingCart a owl:Class ;
-    rdfs:label "Purchased Food Items List" ;
+    rdfs:label "Shopping Cart" ;
     rdfs:comment "Represents a list of food items that has already been bought." .
 
 
@@ -158,7 +158,7 @@ nc-c:includePreferences a owl:ObjectProperty ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-c:ShoppingList .
 
-nc-c:hasPurchasedList a owl:ObjectProperty ;
+nc-c:hasShoppingCard a owl:ObjectProperty ;
     rdfs:label "owns purchased item" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-c:ShoppingCart .
@@ -167,7 +167,7 @@ nc-c:hasPurchasedList a owl:ObjectProperty ;
 nc-c:hasWeightObservation a owl:ObjectProperty ;
     rdfs:label "has weight observation" ;
     rdfs:domain nc-c:Consumer ;
-    rdfs:range schema:WeightObservation .
+    rdfs:range nc-c:WeightObservation .
 
 nc-c:shoppingCartContains a owl:ObjectProperty ;
     rdfs:label "contains food item" ;
