@@ -206,4 +206,4 @@ nc-f:hasValue a owl:DatatypeProperty ;
     rdfs:label "has value" ;
     rdfs:comment "Specifies the value of the nutriment of the food item." ;
     rdfs:domain nc-f:NutritionInformation ;
-    rdfs:range rdfs:float .
+    rdfs:range xsd:float .

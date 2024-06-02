@@ -8,7 +8,7 @@
 @prefix tb: <https://w3id.org/timebank/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
 
-nc-f: a owl:Ontology ;
+nc-f:Ontology a owl:Ontology ;
     <http://purl.org/dc/elements/1.1/creator>  "---" ;
     <http://purl.org/dc/elements/1.1/contributor>  "---" ;
     owl:versionIRI <https://knowledge.next-cart.com/food/1.0.0> ;
@@ -201,4 +201,4 @@ nc-f:hasValue a owl:DatatypeProperty ;
     rdfs:label "has value" ;
     rdfs:comment "Specifies the value of the nutriment of the food item." ;
     rdfs:domain nc-f:NutritionInformation ;
-    rdfs:range rdfs:Float .
+    rdfs:range xsd:float .

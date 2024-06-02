@@ -152,4 +152,4 @@ nc-s:hasSustainabilityMetric a owl:ObjectProperty ;
 
 nc-s:expirationDate a owl:DatatypeProperty ;
     rdfs:domain nc-f:FoodItem ;
-    rdfs:range rdfs:dateTime .
+    rdfs:range xsd:date .

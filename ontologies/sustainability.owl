@@ -9,7 +9,7 @@
 @prefix tb: <https://w3id.org/timebank/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
 
-nc-s: a owl:Ontology ;
+nc-s:Ontology a owl:Ontology ;
     <http://purl.org/dc/elements/1.1/creator>  "---" ;
     <http://purl.org/dc/elements/1.1/contributor>  "---" ;
     owl:versionIRI <https://knowledge.next-cart.com/sustainability/1.0.0> ;
@@ -153,4 +153,4 @@ nc-s:hasSustainabilityMetric a owl:ObjectProperty ;
 
 nc-s:expirationDate a owl:DatatypeProperty ;
     rdfs:domain nc-f:FoodItem ;
-    rdfs:range rdfs:dateTime .
+    rdfs:range xsd:date .
