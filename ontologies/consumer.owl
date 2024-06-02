@@ -31,9 +31,13 @@ nc-c:Consumer a owl:Class ;
     rdfs:subClassOf nc-c:Person ;
     rdfs:comment "Represents someone who buys and consumes food items." .
 
-nc-c:Activity a owl:Class ;
+schema:Activity a owl:Class ;
     rdfs:label "Activity" ;
     rdfs:comment "Represents any kind of activity." .
+
+schema:WeightObservation a owl:Class ;
+    rdfs:label "Weight Observation" ;
+    rdfs:comment "Represents the weight observation." .
 
 dbo:Sleep a owl:Class ;
     rdfs:label "Sleep" ;
@@ -143,6 +147,12 @@ nc-c:purchase a owl:ObjectProperty ;
     rdfs:label "owns purchased item" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-c:PurchasedList .
+
+
+nc-c:hasWeightObservation a owl:ObjectProperty ;
+    rdfs:label "has weight observation" ;
+    rdfs:domain nc-c:Consumer ;
+    rdfs:range schema:WeightObservation .
 
 nc-c:containedInPurchasedList a owl:ObjectProperty ;
     rdfs:label "contains food item" ;
