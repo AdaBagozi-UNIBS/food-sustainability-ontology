@@ -146,16 +146,16 @@ nc-s:BuyLessBeef a nc-s:FoodWaste ;
 nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
 
 # Consumer Behavior Instances
-nc-c:PurchaseList1 a nc-c:ShoppingCard ;
-    nc-c:containedInShoppingCard nc-f:Salmon, nc-f:Beef ;
-    nc-c:purchasedOn "2024-05-28"^^rdfs:date .
+nc-c:ShoppingCart1 a nc-c:ShoppingCart ;
+    nc-c:containedInShoppingCart nc-f:Salmon, nc-f:Beef ;
+    nc-c:shoppingDate "2024-05-28"^^rdfs:date .
 
 nc-c:ShoppingList1 a nc-c:ShoppingList ;
     nc-c:containedInShoppinList nc-f:Salmon, nc-f:Tofu .
 
-nc-c:PurchaseList1 a nc-c:ShoppingCard ;
-    nc-c:containedInShoppingCard nc-f:Salmon, nc-f:Beef ;
-    nc-c:purchasedOn "2024-05-28"^^rdfs:date .
+nc-c:ShoppingCart1 a nc-c:ShoppingCart ;
+    nc-c:containedInShoppingCart nc-f:Salmon, nc-f:Beef ;
+    nc-c:shoppingDate "2024-05-28"^^rdfs:date .
 
 nc-c:JohnDoe nc-c:containedInShoppingList nc-c:ShoppingList1 ;
     nc-c:interestedIn nc-s:LowerWaterFootprint ;
