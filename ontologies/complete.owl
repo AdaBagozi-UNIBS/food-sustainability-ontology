@@ -137,7 +137,7 @@ nc-s:TofuCarbonFootprint a nc-s:CarbonFootprint ;
     rdfs:label "Carbon Footprint" ;
     nc-s:value "2 kg CO2/kg"^^rdfs:string .
 
-nc-f:TofuSustainable a nc-f:SustainableAlternative ;
+nc-f:TofuSustainable a nc-s:SustainableAlternative ;
     rdfs:label "Sustainable Tofu" .
 
 nc-s:BuyLessBeef a nc-s:FoodWaste ;
