@@ -48,6 +48,14 @@ nc-f:Protein a nc-f:NutritionInformation ;
     rdfs:label "Protein" ;
     nc-f:value "g"^^rdfs:string .
 
+nc-f:VitaminC a nc-f:NutritionInformation ;
+    rdfs:label "Vitamin C" ;
+    nc-f:value "mg"^^rdfs:string .
+
+nc-f:Iron a nc-f:NutritionInformation ;
+    rdfs:label "Iron" ;
+    nc-f:value "mg"^^rdfs:string .
+
 nc-f:Fat a nc-f:NutritionInformation ;
     rdfs:label "Fat" ;
     nc-f:value "g"^^rdfs:string .
@@ -150,19 +158,22 @@ nc-c:ShoppingCart1 a nc-c:ShoppingCart ;
     nc-c:containedInShoppingCart nc-f:Salmon, nc-f:Beef ;
     nc-c:shoppingDate "2024-05-28"^^rdfs:date .
 
-nc-c:ShoppingList1 a nc-c:ShoppingList ;
-    nc-c:containedInShoppinList nc-f:Salmon, nc-f:Tofu .
-
-nc-c:ShoppingCart1 a nc-c:ShoppingCart ;
-    nc-c:containedInShoppingCart nc-f:Salmon, nc-f:Beef ;
-    nc-c:shoppingDate "2024-05-28"^^rdfs:date .
+nc-c:ShoppingCart2 a nc-c:ShoppingList ;
+    nc-c:containedInShoppinList nc-f:Salmon, nc-f:Tofu ;
+    nc-c:shoppingDate "2024-06-21"^^rdfs:date .
 
 nc-c:JohnDoe nc-c:containedInShoppingList nc-c:ShoppingList1 ;
     nc-c:interestedIn nc-s:LowerWaterFootprint ;
     nc-c:prefers nc-f:TofuSustainable .
 
-nc-h:CardiovascularHealth a nc-h:HealthConditions ;
+nc-h:CardiovascularHealth a nc-h:Pathology ;
     rdfs:label "Cardiovascular Health" .
+
+nc-h:Obesity a nc-h:Pathology ;
+    rdfs:label "Obesity" .
+
+nc-h:HeartDisease a nc-h:Pathology ;
+    rdfs:label "Heart Disease" .
 
 nc-c:JaneSmith a nc-c:Consumer ;
     rdfs:label "Jane Smith" ;

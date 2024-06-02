@@ -115,11 +115,6 @@ nc-h:HealthConditions a owl:Class ;
     rdfs:label "Health Conditions" ;
     rdfs:comment "Represents health-related information." .
 
-tb:Pathology a owl:Class ;
-    rdfs:label "Pathology" ;
-    rdfs:comment "Represents the pathologies." ;
-    rdfs:subClassOf nc-h:HealthConditions .
-
 tb:FoodAllergy a owl:Class ;
     rdfs:label "Food Allergy" ;
     rdfs:comment "Represents various food allergies." ;
@@ -154,7 +149,7 @@ tb:SeafoodAllergy a owl:Class ;
 tb:FoodIntolerance a owl:Class ;
     rdfs:label "Food Intolerance" ;
     rdfs:comment "Represents various food intolerances." ;
-    rdfs:subClassOf nc-h:HealthConditions.
+    rdfs:subClassOf nc-h:HealthConditions .
 
 tb:GlutenIntolerance a owl:Class ;
     rdfs:label "Gluten Intolerance" ;
@@ -166,7 +161,7 @@ tb:LactoseIntolerance a owl:Class ;
     rdfs:comment "Represents an intolerance to lactose." ;
     rdfs:subClassOf tb:FoodIntolerance .
 
-tb:Pathology a owl:Class ;
+nc-h:Pathology a owl:Class ;
     rdfs:label "Pathology" ;
     rdfs:comment "Represents various pathologies ." ;
     rdfs:subClassOf nc-h:HealthConditions .
@@ -206,4 +201,4 @@ nc-f:hasValue a owl:DatatypeProperty ;
     rdfs:label "has value" ;
     rdfs:comment "Specifies the value of the nutriment of the food item." ;
     rdfs:domain nc-f:NutritionInformation ;
-    rdfs:range rdfs:float .
+    rdfs:range rdfs:Float .
