@@ -67,7 +67,6 @@ nc-f:Protein a owl:Class ;
     rdfs:subClassOf nc-f:NutritionInformation .
 
 nc-h:RestrictedDiet a owl:Class ;
-    rdfs:subClassOf ncit:RestrictedDiet ;
     rdfs:label "Restricted Diet" ;
     rdfs:comment "Represents different types of restricted diets." .
 
