@@ -171,12 +171,12 @@ nc-c:hasWeightObservation a owl:ObjectProperty ;
 nc-c:shoppingCartContains a owl:ObjectProperty ;
     rdfs:label "contains food item" ;
     rdfs:domain nc-c:ShoppingCard ;
-    rdfs:range nc-f:ShoppingItem .
+    rdfs:range nc-c:ShoppingItem .
 
 nc-c:shoppingListContains a owl:ObjectProperty ;
     rdfs:label "contains food item" ;
     rdfs:domain nc-c:ShoppingList ;
-    rdfs:range nc-f:ShoppingItem .
+    rdfs:range nc-c:ShoppingItem .
 
 
 nc-c:refersTo a owl:ObjectProperty ;
