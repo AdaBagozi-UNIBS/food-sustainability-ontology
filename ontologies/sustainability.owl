@@ -10,8 +10,8 @@
 @prefix dbo: <http://dbpedia.org/ontology/> .
 
 nc-s:Ontology a owl:Ontology ;
-    <http://purl.org/dc/elements/1.1/creator> "Anisa Rula" , "Ada Bagozi" ;
-    <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini" , "Michele Melchiori" ;
+    <http://purl.org/dc/elements/1.1/creator> "Anisa Rula", "Ada Bagozi" ;
+    <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini", "Michele Melchiori" ;
     owl:versionIRI <https://knowledge.next-cart.com/sustainability/1.0.0> ;
     <http://purl.org/dc/elements/1.1/publisher> "UNIBS" ;
     <http://purl.org/dc/elements/1.1/title> "The NextCart Ontology - Sustainability" ;
@@ -23,134 +23,161 @@ nc-s:Ontology a owl:Ontology ;
 # Classes
 
 nc-fsc:Stakeholder a owl:Class ;
+    rdfs:label "Stakeholder" ;
     rdfs:comment "Represents stakeholders in the food supply chain." .
 
 nc-fsc:Distributor a owl:Class ;
     rdfs:subClassOf nc-fsc:Stakeholder ;
+    rdfs:label "Distributor" ;
     rdfs:comment "Represents distributors in the food supply chain." .
 
 nc-fsc:Retailer a owl:Class ;
     rdfs:subClassOf nc-fsc:Stakeholder ;
+    rdfs:label "Retailer" ;
     rdfs:comment "Represents retailers in the food supply chain." .
 
 nc-fsc:CertificationAuthority a owl:Class ;
     rdfs:subClassOf nc-fsc:Stakeholder ;
+    rdfs:label "Certification Authority" ;
     rdfs:comment "Represents certification authorities in the food supply chain." .
 
 nc-fsc:Producer a owl:Class ;
     rdfs:subClassOf nc-fsc:Stakeholder ;
+    rdfs:label "Producer" ;
     rdfs:comment "Represents producers in the food supply chain." .
 
 nc-fsc:Farmer a owl:Class ;
     rdfs:subClassOf nc-fsc:Stakeholder ;
+    rdfs:label "Farmer" ;
     rdfs:comment "Represents farmers in the food supply chain." .
 
 nc-fsc:FoodSupplyChain a owl:Class ;
+    rdfs:label "Food Supply Chain" ;
     rdfs:comment "Represents the food supply chain." .
 
 nc-s:Sustainability a owl:Class ;
+    rdfs:label "Sustainability" ;
     rdfs:comment "Represents the sustainability aspects." .
 
 nc-s:EnvironmentalSustainability a owl:Class ;
     rdfs:subClassOf nc-s:Sustainability ;
+    rdfs:label "Environmental Sustainability" ;
     rdfs:comment "Aspects related to the environmental impact of food production and consumption." .
 
 nc-s:WaterFootprint a owl:Class ;
     rdfs:subClassOf nc-s:EnvironmentalSustainability ;
+    rdfs:label "Water Footprint" ;
     rdfs:comment "The amount of water used in the production of food." .
 
 nc-s:CarbonFootprint a owl:Class ;
     rdfs:subClassOf nc-s:EnvironmentalSustainability ;
+    rdfs:label "Carbon Footprint" ;
     rdfs:comment "The total greenhouse gases emitted during food production." .
 
 nc-s:EnergyUse a owl:Class ;
     rdfs:subClassOf nc-s:EnvironmentalSustainability ;
+    rdfs:label "Energy Use" ;
     rdfs:comment "Energy consumed in various stages of the food supply chain (FSC)." .
 
 nc-s:BiodiversityImpact a owl:Class ;
     rdfs:subClassOf nc-s:EnvironmentalSustainability ;
+    rdfs:label "Biodiversity Impact" ;
     rdfs:comment "Effects of food production on biodiversity." .
 
 nc-s:EconomicSustainability a owl:Class ;
     rdfs:subClassOf nc-s:Sustainability ;
+    rdfs:label "Economic Sustainability" ;
     rdfs:comment "Financial aspects affecting the food supply chain (FSC)." .
 
 nc-s:CostEfficiency a owl:Class ;
     rdfs:subClassOf nc-s:EconomicSustainability ;
+    rdfs:label "Cost Efficiency" ;
     rdfs:comment "Measures to reduce costs and improve economic viability." .
 
 nc-s:FairTrade a owl:Class ;
     rdfs:subClassOf nc-s:EconomicSustainability ;
+    rdfs:label "Fair Trade" ;
     rdfs:comment "Ensuring fair prices and wages for producers." .
 
 nc-s:SocialSustainability a owl:Class ;
     rdfs:subClassOf nc-s:Sustainability ;
+    rdfs:label "Social Sustainability" ;
     rdfs:comment "Social implications of food production and consumption." .
 
 nc-s:FoodSecurity a owl:Class ;
     rdfs:subClassOf nc-s:SocialSustainability ;
+    rdfs:label "Food Security" ;
     rdfs:comment "Ensuring all people have access to sufficient, safe, and nutritious food." .
 
 nc-s:LaborConditions a owl:Class ;
     rdfs:subClassOf nc-s:SocialSustainability ;
+    rdfs:label "Labor Conditions" ;
     rdfs:comment "Working conditions of individuals involved in the FSC." .
 
 nc-s:CommunityImpact a owl:Class ;
     rdfs:subClassOf nc-s:SocialSustainability ;
+    rdfs:label "Community Impact" ;
     rdfs:comment "Effects on local communities." .
 
 nc-s:WasteManagement a owl:Class ;
     rdfs:subClassOf nc-s:Sustainability ;
+    rdfs:label "Waste Management" ;
     rdfs:comment "Aspects related to reducing and managing waste within the FSC." .
 
 nc-s:FoodWaste a owl:Class ;
     rdfs:subClassOf nc-s:WasteManagement ;
+    rdfs:label "Food Waste" ;
     rdfs:comment "Wastage occurring at various stages of the FSC." .
 
 nc-s:Recycling a owl:Class ;
     rdfs:subClassOf nc-s:WasteManagement ;
+    rdfs:label "Recycling" ;
     rdfs:comment "Practices related to recycling and reuse of food products and packaging." .
 
 nc-s:Composting a owl:Class ;
     rdfs:subClassOf nc-s:WasteManagement ;
+    rdfs:label "Composting" ;
     rdfs:comment "Organic waste management through composting." .
 
 nc-s:SustainableAlternative a owl:Class ;
+    rdfs:label "Sustainable Alternative" ;
     rdfs:comment "Sustainable alternatives." .
-
 
 # Object Properties
 
 nc-s:hasSustainability a owl:ObjectProperty ;
-    rdfs:domain nc-fsc:FoodSupplyChain ;    
     rdfs:label "has sustainability" ;
+    rdfs:domain nc-fsc:FoodSupplyChain ;    
     rdfs:range nc-s:Sustainability .
 
-
 nc-s:hasSustainableAlternatives a owl:ObjectProperty ;
-    rdfs:domain nc-f:FoodItem ;    
     rdfs:label "has sustainable alternatives" ;
+    rdfs:domain nc-f:FoodItem ;    
     rdfs:range nc-s:SustainableAlternative .
 
 nc-fsc:isStakeholderIn a owl:ObjectProperty ;
+    rdfs:label "is stakeholder in" ;
     rdfs:domain nc-fsc:Stakeholder ;
     rdfs:range nc-fsc:FoodSupplyChain .
 
 nc-fsc:processedIn a owl:ObjectProperty ;
+    rdfs:label "processed in" ;
     rdfs:domain nc-f:FoodItem ;
     rdfs:range nc-fsc:FoodSupplyChain .
 
-
 nc-s:impacts a owl:ObjectProperty ;
+    rdfs:label "impacts" ;
     rdfs:domain nc-fsc:Stakeholder ;
     rdfs:range nc-s:Sustainability .
 
 nc-s:hasSustainabilityMetric a owl:ObjectProperty ;
+    rdfs:label "has sustainability metric" ;
     rdfs:domain nc-f:FoodItem ;
     rdfs:range nc-s:Sustainability .
 
 # Data Properties
 
 nc-s:expirationDate a owl:DatatypeProperty ;
+    rdfs:label "expiration date" ;
     rdfs:domain nc-f:FoodItem ;
     rdfs:range xsd:date .

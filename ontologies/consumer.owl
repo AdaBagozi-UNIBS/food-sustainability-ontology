@@ -70,42 +70,38 @@ nc-c:ShoppingCart a owl:Class ;
     rdfs:label "Shopping Cart" ;
     rdfs:comment "Represents a list of food items that has already been bought." .
 
-
-
-# Equivalences
-
 # Data Properties
-schema:birthDate a owl:DatatypeProperty;
+schema:birthDate a owl:DatatypeProperty ;
     rdfs:label "birth date" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range xsd:date .
 
-schema:familyName a owl:DatatypeProperty;
+schema:familyName a owl:DatatypeProperty ;
     rdfs:label "family name" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range xsd:string .
 
-schema:gender a owl:DatatypeProperty;
+schema:gender a owl:DatatypeProperty ;
     rdfs:label "gender" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range xsd:string .
 
-schema:givenName a owl:DatatypeProperty;
+schema:givenName a owl:DatatypeProperty ;
     rdfs:label "given name" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range xsd:string .
 
-schema:height a owl:DatatypeProperty;
+schema:height a owl:DatatypeProperty ;
     rdfs:label "height" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range xsd:float .
 
-nc-c:hasDate a owl:DatatypeProperty;
+nc-c:hasDate a owl:DatatypeProperty ;
     rdfs:label "has date" ;
     rdfs:domain nc-c:Activity ;
     rdfs:range xsd:date .
 
-nc-c:hasDuration a owl:DatatypeProperty;
+nc-c:hasDuration a owl:DatatypeProperty ;
     rdfs:label "has duration" ;
     rdfs:domain nc-c:Activity ;
     rdfs:range xsd:integer .
@@ -115,7 +111,7 @@ nc-c:hasFrequency a owl:DatatypeProperty ;
     rdfs:domain nc-c:Activity ;
     rdfs:range xsd:integer .
 
-nc-c:shoppingDate a owl:DatatypeProperty;
+nc-c:shoppingDate a owl:DatatypeProperty ;
     rdfs:label "purchase date" ;
     rdfs:domain nc-c:ShoppingCart ;
     rdfs:range xsd:date .
@@ -131,7 +127,6 @@ nc-c:shoppingItemPrice a owl:DatatypeProperty ;
     rdfs:range xsd:float .
 
 # Object Properties
-
 nc-c:hasAddress a owl:ObjectProperty ;
     rdfs:label "has address" ;
     rdfs:domain nc-c:Consumer ;
@@ -147,7 +142,6 @@ nc-c:performs a owl:ObjectProperty ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-c:Activity .
 
-
 nc-c:includePreferences a owl:ObjectProperty ;
     rdfs:label "owns shopping list" ;
     rdfs:domain nc-c:Consumer ;
@@ -157,7 +151,6 @@ nc-c:hasShoppingCart a owl:ObjectProperty ;
     rdfs:label "owns purchased item" ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-c:ShoppingCart .
-
 
 nc-c:hasWeightObservation a owl:ObjectProperty ;
     rdfs:label "has weight observation" ;
@@ -171,7 +164,6 @@ nc-c:shoppingCartContains a owl:ObjectProperty ;
 nc-c:shoppingListContains a owl:ObjectProperty ;
     rdfs:domain nc-c:ShoppingList ;
     rdfs:range nc-c:ShoppingItem .
-
 
 nc-c:refersTo a owl:ObjectProperty ;
     rdfs:label "refers to" ;
