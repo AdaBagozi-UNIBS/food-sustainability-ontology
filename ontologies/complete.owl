@@ -13,8 +13,8 @@
 @prefix dbo: <http://dbpedia.org/ontology/> .
 
 nc-complete:Ontology a owl:Ontology ;
-    <http://purl.org/dc/elements/1.1/creator> "Anisa Rula", "Ada Bagozi" ;
-    <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini", "Michele Melchiori" ;
+    <http://purl.org/dc/elements/1.1/creator> "Anisa Rula" , "Ada Bagozi" ;
+    <http://purl.org/dc/elements/1.1/contributor> "Devis Bianchini" , "Michele Melchiori" ;
     owl:versionIRI <https://knowledge.next-cart.com/complete/1.0.0> ;
     <http://purl.org/dc/elements/1.1/publisher> "UNIBS" ;
     <http://purl.org/dc/elements/1.1/title> "The NextCart Ontology - Complete" ;
@@ -43,7 +43,7 @@ nc-complete:hasSustainabilityPreferences a owl:ObjectProperty ;
     rdfs:domain nc-c:Consumer ;
     rdfs:range nc-s:Sustainability .
 
-# Nutrition Information
+
 nc-f:Protein a nc-f:NutritionInformation ;
     rdfs:label "Protein" ;
     nc-f:value "g"^^xsd:string .
@@ -72,7 +72,6 @@ nc-f:LowFat a nc-f:NutritionInformation ;
 
 # Health and Nutritional Monitoring Instances
 nc-f:Salmon a nc-f:FoodItem ;
-    rdfs:label "Salmon" ;
     nc-f:hasNutritionalValue nc-f:HighProtein, nc-f:LowFat ;
     nc-h:isSuitableFor nc-h:CardiovascularHealth ;
     nc-f:hasNutritionInformation nc-f:SalmonNutrition ;
@@ -82,6 +81,7 @@ nc-f:SalmonNutrition a nc-f:NutritionInformation ;
     nc-f:Protein "20g"^^xsd:string ;
     nc-f:Fat "5g"^^xsd:string ;
     nc-f:Carbohydrates "0g"^^xsd:string .
+    
 
 nc-s:SalmonWaterFootprint a nc-s:WaterFootprint ;
     rdfs:label "Water Footprint" ;
@@ -91,33 +91,21 @@ nc-s:SalmonCarbonFootprint a nc-s:CarbonFootprint ;
     rdfs:label "Carbon Footprint" ;
     nc-s:value "3 kg CO2/kg"^^xsd:string .
 
-# Health Conditions and Restricted Diets
 nc-h:LowSodiumDiet a schema:RestrictedDiet ;
     rdfs:label "Low Sodium Diet" .
 
+nc-c:Running a nc-c:Activity ;
+    rdfs:label "Running" .
+
+nc-c:JohnDoe a nc-c:Consumer ;
+    rdfs:label "John Doe" ;
+    nc-complete:hasRestrictedDiet nc-h:LowSodiumDiet ;
+    nc-c:performsActivity nc-c:Running ;
+    nc-c:hasHealthConditions nc-h:Hypertension ;
+    nc-complete:hasRestrictedDiet nc-h:GlutenFreeDiet .
+
 nc-h:GlutenFreeDiet a schema:RestrictedDiet ;
     rdfs:label "Gluten-Free Diet" .
-
-nc-h:VeganDiet a schema:RestrictedDiet ;
-    rdfs:label "Vegan Diet" .
-
-nc-h:VegetarianDiet a schema:RestrictedDiet ;
-    rdfs:label "Vegetarian Diet" .
-
-nc-h:CardiovascularHealth a nc-h:Pathology ;
-    rdfs:label "Cardiovascular Health" .
-
-nc-h:Obesity a nc-h:Pathology ;
-    rdfs:label "Obesity" .
-
-nc-h:HeartDisease a nc-h:Pathology ;
-    rdfs:label "Heart Disease" .
-
-nc-h:Diabetes a nc-h:HealthConditions ;
-    rdfs:label "Diabetes" .
-
-nc-h:Hypertension a nc-h:HealthConditions ;
-    rdfs:label "Hypertension" .
 
 # Sustainable Shopping and Consumption Instances
 nc-f:Beef a nc-f:FoodItem ;
@@ -163,41 +151,37 @@ nc-f:TofuSustainable a nc-s:SustainableAlternative ;
 nc-s:BuyLessBeef a nc-s:FoodWaste ;
     rdfs:label "Buy Less Beef" .
 
+nc-c:JohnDoe nc-s:minimizesWaste nc-s:BuyLessBeef .
+
 # Consumer Behavior Instances
-nc-c:JohnDoe a nc-c:Consumer ;
-    rdfs:label "John Doe" ;
-    nc-complete:hasRestrictedDiet nc-h:LowSodiumDiet, nc-h:GlutenFreeDiet ;
-    nc-c:performs nc-c:Running ;
-    nc-c:hasHealthConditions nc-h:Hypertension ;
-    nc-s:minimizesWaste nc-s:BuyLessBeef .
+nc-c:ShoppingCart1 a nc-c:ShoppingCart ;
+    nc-c:containedInShoppingCart nc-f:Salmon, nc-f:Beef ;
+    nc-c:shoppingDate "2024-05-28"^^xsd:date .
+
+nc-c:ShoppingCart2 a nc-c:ShoppingList ;
+    nc-c:containedInShoppinList nc-f:Salmon, nc-f:Tofu ;
+    nc-c:shoppingDate "2024-06-21"^^xsd:date .
+
+nc-c:JohnDoe nc-c:containedInShoppingList nc-c:ShoppingList1 ;
+    nc-c:interestedIn nc-s:LowerWaterFootprint ;
+    nc-c:prefers nc-f:TofuSustainable .
+
+nc-h:CardiovascularHealth a nc-h:Pathology ;
+    rdfs:label "Cardiovascular Health" .
+
+nc-h:Obesity a nc-h:Pathology ;
+    rdfs:label "Obesity" .
+
+nc-h:HeartDisease a nc-h:Pathology ;
+    rdfs:label "Heart Disease" .
 
 nc-c:JaneSmith a nc-c:Consumer ;
     rdfs:label "Jane Smith" ;
     nc-complete:hasRestrictedDiet nc-h:VeganDiet .
 
-nc-c:AliceJohnson a nc-c:Consumer ;
-    rdfs:label "Alice Johnson" ;
-    nc-complete:hasRestrictedDiet nc-h:VegetarianDiet .
+nc-h:VeganDiet a schema:RestrictedDiet ;
+    rdfs:label "Vegan Diet" .
 
-nc-c:ShoppingCart1 a nc-c:ShoppingCart ;
-    nc-c:shoppingCartContains nc-f:Salmon, nc-f:Beef ;
-    nc-c:shoppingDate "2024-05-28"^^xsd:date .
-
-nc-c:ShoppingCart2 a nc-c:ShoppingList ;
-    nc-c:shoppingListContains nc-f:Salmon, nc-f:Tofu ;
-    nc-c:shoppingDate "2024-06-21"^^xsd:date .
-
-# Activities
-nc-c:Running a nc-c:Activity ;
-    rdfs:label "Running" .
-
-nc-c:Swimming a nc-c:Activity ;
-    rdfs:label "Swimming" .
-
-nc-c:Cycling a nc-c:Activity ;
-    rdfs:label "Cycling" .
-
-# Additional Food Items and Metrics
 nc-f:Chicken a nc-f:FoodItem ;
     rdfs:label "Chicken" ;
     nc-f:hasNutritionInformation nc-f:ChickenNutrition .
@@ -206,6 +190,12 @@ nc-f:ChickenNutrition a nc-f:NutritionInformation ;
     nc-f:Protein "27g"^^xsd:string ;
     nc-f:Fat "14g"^^xsd:string ;
     nc-f:Carbohydrates "0g"^^xsd:string .
+
+nc-h:Diabetes a nc-h:HealthConditions ;
+    rdfs:label "Diabetes" .
+
+nc-c:Swimming a nc-c:Activity ;
+    rdfs:label "Swimming" .
 
 nc-f:Pork a nc-f:FoodItem ;
     rdfs:label "Pork" ;
@@ -243,6 +233,17 @@ nc-s:LentilsCarbonFootprint a nc-s:CarbonFootprint ;
     rdfs:label "Carbon Footprint" ;
     nc-s:value "0.9 kg CO2/kg"^^xsd:string .
 
+nc-s:FairTrade a nc-s:Sustainability ;
+    rdfs:label "Fair Trade" ;
+    nc-s:description "Products produced and traded in compliance with Fair Trade standards" .
+
+nc-c:AliceJohnson a nc-c:Consumer ;
+    rdfs:label "Alice Johnson" ;
+    nc-complete:hasRestrictedDiet nc-h:VegetarianDiet .
+
+nc-h:VegetarianDiet a schema:RestrictedDiet ;
+    rdfs:label "Vegetarian Diet" .
+
 nc-f:Milk a nc-f:FoodItem ;
     rdfs:label "Milk" ;
     nc-f:hasNutritionInformation nc-f:MilkNutrition ;
@@ -261,13 +262,8 @@ nc-s:MilkCarbonFootprint a nc-s:CarbonFootprint ;
     rdfs:label "Carbon Footprint" ;
     nc-s:value "3 kg CO2/kg"^^xsd:string .
 
-# Fair Trade Sustainability
-nc-s:FairTrade a nc-s:Sustainability ;
-    rdfs:label "Fair Trade" ;
-    rdfs:comment "Products produced and traded in compliance with Fair Trade standards" .
+nc-h:Hypertension a nc-h:HealthConditions ;
+    rdfs:label "Hypertension" .
 
-# Data Properties
-nc-s:expirationDate a owl:DatatypeProperty ;
-    rdfs:label "expiration date" ;
-    rdfs:domain nc-f:FoodItem ;
-    rdfs:range xsd:date .
+nc-c:Cycling a nc-c:Activity ;
+    rdfs:label "Cycling" .
